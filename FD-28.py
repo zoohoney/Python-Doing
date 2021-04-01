@@ -11,3 +11,6 @@ if __name__ == "__main__":
 # netstat -an | grep 5000
 # sudo lsof -i :5000
 # sudo kill -9 [PID] //[PID] 부분에 앞에 번호를 입력 하여 kill 하기
+import tensorflow as tf
+tf.__version__
+
