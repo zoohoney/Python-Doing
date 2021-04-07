@@ -21,26 +21,39 @@ def sum(n):
     return n + sum(n - 1)
 print(sum(3))
 
+
 # 문제 2. 숫자 n개 중에서 최댓값 찾기(재귀호출)
-# def jfind_max(n):
-#     i = len(n)
-#     max_v = n[0]
-#     if i <= 1:
-#         return 1 
-#     for i in range(1, n) :
-#         if n[i] > max_v:
-#             max_v = n[i]
-#     return max_v
-# v = [17,92,18,33,58,7,33,42]
-# print(jfind_max(v))
+def jfind_max(a, n):
+    if n == 1:
+        return a[0]
+    max_n = jfind_max(a, n -1)
+    if max_n > a[n - 1] :
+        return max_n
+    else:
+        return a[n - 1]
+v = [17,92,18,33,58,7,33,42]
+print(jfind_max(v, len(v)))
 
+# 최대공약수 알고리즘
+def gcd(a,b):
+    i = min(a,b)
+    while True:
+        if a % i == 0 and b % i == 0 :
+            return i
+        i = i -1 
+print(gcd(1,5))
 
-# def find_max(a):
-#     n = len(a)
-#     max_v = a[0]
-#     for i in range(1, n) :
-#         if a[i] > max_v:
-#             max_v = a[i]
-#     return max_v
-# v = [17,92,18,33,58,7,33,42]
-# print(find_max(v))
+# 유클리드 방식 최대공약수 알고리즘
+def ugcd(a,b):
+    if b == 0:
+        return a
+    return ugcd(b, a %b)
+print(ugcd(1,5))
+
+# 문제 1. 피보나치 수 (재귀호출)
+def fibonaci(n):
+    if n <= 1:
+        return n  
+    return fibonaci(n - 2) + fibonaci(n - 1)
+print(fibonaci(7))
+print(fibonaci(10))
